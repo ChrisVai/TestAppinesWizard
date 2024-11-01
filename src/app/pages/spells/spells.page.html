@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Spells</ion-title>
@@ -15,16 +16,20 @@
     <ion-searchbar [(ngModel)]="searchInput" class="py-0 custom-searchbar mb-8" mode="ios" placeholder="Search"/>
 
     <div class="space-y-4">
-      @if(filteredSpells().length <= 0) {
-        <!--TODO: terminer de styliser et peut être remplacer par une div / span ?-->
-        <p class="bg-amber-50 rounded p-2 font-semibold ">Pas de sort correspondant :/</p>
-      }
       @for(spell of filteredSpells(); track spell.id) {
         <app-spell-card [spell]="spell"/>
+      } @empty {
+        @defer (when (searchInput() !== '')) {
+          <div class="flex-col">
+            <p class="text-center text-sm text-wz-font-color-light-green tablet:text-base">
+              Seems there is nothing to see here
+            </p>
+            <p class="text-center text-sm text-wz-font-color-light-green font-medium tablet:text-base">
+              Try again... Wizard !
+            </p>
+          </div>
+        }
       }
     </div>
-
-
   </div>
-
 </ion-content>
