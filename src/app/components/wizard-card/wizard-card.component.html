@@ -1,0 +1,28 @@
+<div class="flex overflow-clip min-h-28 max-h-28 card hover:cursor-pointer bg-wz-bg-dark-green font-montserratAlternatesSans font-bold text-base text-wz-font-color-light-gray border border-solid border-wz-border-color-light-green rounded-xl py-wz-card-y px-wz-card-x shadow-wz-box-shadow tablet:text-xl tablet:leading-6">
+
+  <div class="flex gap-4 items-center">
+
+    <div class="relative min-h-16 min-w-16 max-h-16 max-w-16 rounded-full overflow-hidden">
+      @if(wizard().image) {
+        <img class="object-cover" [ngSrc]="wizard().image" fill alt="{{wizard().name + '\'s portrait'}}" priority>
+      } @else {
+        <img class="object-cover opacity-10" ngSrc="https://www.shutterstock.com/image-vector/default-profile-picture-avatar-photo-600nw-1681253560.jpg" fill alt="{{wizard().name + '\'s portrait'}}" priority>
+      }
+    </div>
+
+    <div class="flex flex-col">
+      <p>{{wizard().name}}</p>
+        <p class="line-clamp-2 text-sm text-wz-font-color-light-green pt-1 font-montserratSans font-medium tablet:pt-2 tablet:text-xl tablet:leading-6">
+          @for(alternate_name of wizard().alternate_names; track alternate_name; let last = $last) {
+            @if(last) {
+              <span>{{alternate_name}}</span>
+            } @else {
+              <span>{{alternate_name + ' ' + '・' + ' '}}</span>
+            }
+          }
+        </p>
+    </div>
+
+  </div>
+
+</div>
