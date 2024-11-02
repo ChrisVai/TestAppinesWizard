@@ -10,4 +10,13 @@
       <ion-title size="large">Wizards</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="m-4 tablet:m-8">
+    <ion-searchbar [(ngModel)]="searchInput" class="py-0 custom-searchbar mb-8" mode="ios" placeholder="Search"/>
+    <div class="space-y-4">
+      @for(wizard of filteredWizards(); track wizard.id ){
+        <app-wizard-card [wizard]="wizard"/>
+      }
+    </div>
+  </div>
 </ion-content>
