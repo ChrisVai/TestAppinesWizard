@@ -3,11 +3,13 @@
     <ion-icon slot="icon-only" name="chevron-back-outline" aria-label="back" aria-hidden="true"></ion-icon>
   </ion-button>
 </div>
+
 <div class="relative max-h-96 h-96 bg-gradient-to-b from-90% to-wz-bg-dark-green z10">
   @if(wizard().image; as image) {
     <img class="object-cover" [ngSrc]="image!" fill priority alt="wizard's portrait">
   }
 </div>
+
 <div class="m-4 tablet:m-8">
   <h1 class="mb-3 text-3xl text-wz-font-color-light-gray font-bold font-montserratAlternatesSans">{{wizard().name}}</h1>
   <p class="mb-5 line-clamp-2 text-base text-wz-font-color-light-gray pt-1 font-montserratSans font-normal tablet:pt-2 tablet:text-xl tablet:leading-6">
@@ -19,13 +21,15 @@
       }
     }
   </p>
+
   <div class="mb-10 flex gap-3 font-montserrat text-wz-font-color-light-gray text-base font-medium">
-    <div class="bg-wz-pink rounded-full px-3 py-1.5">{{wizard().species}}</div>
+    <div class="bg-wz-pink rounded-full px-3 py-1">{{wizard().species}}</div>
     @if(wizard().wizard) {
-      <div class="bg-wz-light-purple rounded-full px-3 py-1.5">Wizard</div>
+      <div class="bg-wz-light-purple rounded-full px-3 py-1">Wizard</div>
     }
-    <div class="bg-wz-turquoise rounded-full px-3 py-1.5">{{wizard().house}}</div>
+    <div class="bg-wz-turquoise rounded-full px-3 py-1">{{wizard().house}}</div>
   </div>
+
   <div class="bg-wz-bg-dark-green border border-solid border-wz-border-color-light-green rounded-xl">
     <ion-list [inset]="true" lines="full" mode="ios">
       <ion-item>
@@ -56,6 +60,7 @@
       </ion-item>
     </ion-list>
   </div>
+
 </div>
 
 
