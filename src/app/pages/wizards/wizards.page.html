@@ -16,6 +16,17 @@
     <div class="space-y-4">
       @for(wizard of filteredWizards(); track wizard.id ){
         <app-wizard-card [wizard]="wizard"/>
+      } @empty {
+        @defer (when (searchInput() !== '')) {
+          <div class="flex-col">
+            <p class="text-center text-sm text-wz-font-color-light-green tablet:text-base">
+              Seems there is nothing to see here
+            </p>
+            <p class="text-center text-sm text-wz-font-color-light-green font-medium tablet:text-base">
+              Try again... Wizard !
+            </p>
+          </div>
+        }
       }
     </div>
   </div>
