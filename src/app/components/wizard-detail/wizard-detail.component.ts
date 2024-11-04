@@ -19,10 +19,11 @@ export class WizardDetailComponent {
     addIcons({ chevronBackOutline });
   }
 
+  // for using datePipe in the template
   dateParser(dateString: string): string {
-    let year = dateString.substring(6, 10);
-    let month = dateString.substring(3, 5);
-    let day = dateString.substring(0, 2);
+    let year: string = dateString.substring(6, 10);
+    let month: string = dateString.substring(3, 5);
+    let day: string = dateString.substring(0, 2);
     return year + '-' + month + '-' + day;
   }
 }
