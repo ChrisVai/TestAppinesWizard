@@ -7,7 +7,7 @@ export interface Wizard {
   species: string;
   gender: string;
   house: string;
-  dateOfBirth?: Date;
+  dateOfBirth?: string;
   yearOfBirth?: number;
   wizard: boolean;
   ancestry: string;
