@@ -19,6 +19,7 @@ import { WizardService } from '../../services/wizard.service';
 import { Wizard } from '../../models/wizard';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { WizardDetailComponent } from '../../components/wizard-detail/wizard-detail.component';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-wizard-detail-page',
@@ -46,7 +47,23 @@ export class WizardDetailPage implements OnInit {
   ngOnInit() {
     this.wizardService
       .fetchWizardById(this.id)
-      .pipe(takeUntilDestroyed(this.destroyRef))
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        map((wizard: Wizard) => {
+          //capitalize first letter of these wizard's attributes
+          wizard.species = this.capitalizeFirstLetter(wizard.species);
+          wizard.gender = this.capitalizeFirstLetter(wizard.gender);
+          wizard.ancestry = this.capitalizeFirstLetter(wizard.ancestry);
+          wizard.eyeColour = this.capitalizeFirstLetter(wizard.eyeColour);
+          wizard.hairColour = this.capitalizeFirstLetter(wizard.hairColour);
+          wizard.patronus = this.capitalizeFirstLetter(wizard.patronus);
+          return wizard;
+        }),
+      )
       .subscribe(wizard => this.wizard.set(wizard));
+  }
+
+  capitalizeFirstLetter(string: string): string {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 }
