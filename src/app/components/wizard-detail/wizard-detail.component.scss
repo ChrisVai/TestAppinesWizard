@@ -4,34 +4,35 @@
   .item.sc-ion-label-ios-h, .item .sc-ion-label-ios-h {
     --color: #4B91A1;
   }
-  ion-button {
-    --background: #304D53;
-    --background-hover: #004755;
-    --background-activated: #004755;
-    --background-focused: #004755;
+}
 
-    --color: #DBE6E9;
+ion-button {
+  --background: #304D53;
+  --background-hover: #004755;
+  --background-activated: #004755;
+  --background-focused: #004755;
 
-    --border-radius: 1rem;
-    --border-color: #004755;
-    --border-style: solid;
-    --border-width: 1px;
+  --color: #DBE6E9;
 
-    --box-shadow: none;
+  --border-radius: 1rem;
+  --border-color: #004755;
+  --border-style: solid;
+  --border-width: 1px;
 
-    --ripple-color: deeppink;
+  --box-shadow: none;
 
-    --padding-top: 10px;
-    --padding-bottom: 10px;
-  }
+  --ripple-color: deeppink;
 
-  ion-icon {
-    font-size: 24px;
-    color: #DBE6E9;
-  }
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+}
 
-  ion-list {
-    --ion-background-color: #004755;
-  }
+ion-icon {
+  font-size: 24px;
+  color: #DBE6E9;
+}
+
+ion-list {
+  --ion-background-color: #004755;
 }
 
