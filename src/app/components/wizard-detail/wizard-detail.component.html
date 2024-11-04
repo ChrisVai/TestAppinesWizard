@@ -4,13 +4,13 @@
   </ion-button>
 </div>
 
-<div class="relative max-h-96 h-96 bg-gradient-to-b from-90% to-wz-bg-dark-green z10">
+<div class="mask relative max-h-96 h-96">
   @if(wizard().image; as image) {
     <img class="object-cover" [ngSrc]="image!" fill priority alt="wizard's portrait">
   }
 </div>
 
-<div class="m-4 tablet:m-8">
+<div class="m-4 mb-15 tablet:m-8">
   <h1 class="mb-3 text-3xl text-wz-font-color-light-gray font-bold font-montserratAlternatesSans">{{wizard().name}}</h1>
   <p class="mb-5 line-clamp-2 text-base text-wz-font-color-light-gray pt-1 font-montserratSans font-normal tablet:pt-2 tablet:text-xl tablet:leading-6">
     @for(alternate_name of wizard().alternate_names; track alternate_name; let last = $last) {
