@@ -10,4 +10,24 @@
       <ion-title size="large">Wizards</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="m-4 tablet:m-8">
+    <ion-searchbar [(ngModel)]="searchInput" class="py-0 custom-searchbar mb-8" mode="ios" placeholder="Search"/>
+    <div class="space-y-4">
+      @for(wizard of filteredWizards(); track wizard.id ){
+        <app-wizard-card [wizard]="wizard"/>
+      } @empty {
+        @defer (when (searchInput() !== '')) {
+          <div class="flex-col">
+            <p class="text-center text-sm text-wz-font-color-light-green tablet:text-base">
+              Seems there is nothing to see here
+            </p>
+            <p class="text-center text-sm text-wz-font-color-light-green font-medium tablet:text-base">
+              Try again... Wizard !
+            </p>
+          </div>
+        }
+      }
+    </div>
+  </div>
 </ion-content>

@@ -1,0 +1,53 @@
+:host {
+ display: block;
+  --ion-item-border-color: #4B91A1;
+}
+
+ion-button {
+  --background: #304D53;
+  --background-hover: #004755;
+  --background-activated: #004755;
+  --background-focused: #004755;
+
+  --color: #DBE6E9;
+
+  --border-radius: 1rem;
+  --border-color: #004755;
+  --border-style: solid;
+  --border-width: 1px;
+
+  --box-shadow: none;
+
+  --ripple-color: deeppink;
+
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+}
+
+
+ion-icon {
+  font-size: 24px;
+  color: #DBE6E9;
+}
+
+ion-list {
+  --ion-background-color: #004755;
+
+  //ion-list label's color
+  .item.sc-ion-label-ios-h, .item .sc-ion-label-ios-h {
+    --color: #4B91A1;
+    font-weight: 500;
+
+    @media screen and (min-width: 640px) {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.list-ios.list-inset {
+  margin: 12px 16px 8px 16px;
+}
+
+.mask {
+  mask-image: linear-gradient(to top, transparent 5%, black 20%);
+}
