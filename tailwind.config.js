@@ -10,6 +10,9 @@ module.exports = {
       'wz-font-color-light-green': '#53A7BC',
       'wz-font-color-light-gray': '#DBE6E9',
       'wz-border-color-light-green': '#4B91A1',
+      'wz-pink': '#C64191',
+      'wz-light-purple' : '#9C95DC',
+      'wz-turquoise': '#53A7BC',
     },
     extend: {
       fontFamily: {
