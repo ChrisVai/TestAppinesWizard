@@ -1,6 +1,6 @@
 <button [routerLink]="['wizardDetail/'+wizard().id]" class="flex items-center overflow-clip w-full min-h-28 max-h-28 hover:cursor-pointer bg-wz-bg-dark-green font-montserratAlternatesSans font-bold text-base text-wz-font-color-light-gray border border-solid border-wz-border-color-light-green rounded-xl py-wz-card-y px-wz-card-x shadow-wz-box-shadow tablet:text-xl tablet:leading-6">
   <div class="flex gap-4 items-center">
-    <div class="relative min-h-16 min-w-16 max-h-16 max-w-16 rounded-full overflow-hidden">
+    <div class="relative min-h-16 min-w-16 max-h-16 max-w-16 tablet:min-h-20 tablet:min-w-20 tablet:max-h-20 tablet:max-w-20 rounded-full overflow-hidden">
       @if(wizard().image) {
         <img class="object-cover" [ngSrc]="wizard().image" fill alt="{{wizard().name + '\'s portrait'}}">
       } @else {
