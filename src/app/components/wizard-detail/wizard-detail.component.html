@@ -1,64 +1,68 @@
 <div class="fixed top-12 left-5 z-10 tablet:left-10">
-  <ion-button size="large" [routerLink]="['/wizards']">
-    <ion-icon slot="icon-only" name="chevron-back-outline" aria-label="back" aria-hidden="true"></ion-icon>
+  <ion-button size="large" [routerLink]="['/wizards']" aria-label="Back">
+    <ion-icon slot="icon-only" name="chevron-back-outline" aria-hidden="true"></ion-icon>
   </ion-button>
 </div>
 
 <div class="mask relative max-h-96 h-96 tablet:max-h-128 tablet:h-128">
   @if(wizard().image; as image) {
-    <img class="object-cover" [ngSrc]="image!" fill priority alt="wizard's portrait">
+    <img class="object-cover" [ngSrc]="image!" fill alt="wizard's portrait" priority>
   }
 </div>
 
 <div class="m-4 mb-10 tablet:m-8">
 
-  <h1 class="mb-3 text-3xl text-wz-font-color-light-gray font-bold font-montserratAlternatesSans tablet:text-4xl">{{wizard().name}}</h1>
+  <h1 class="mb-2 text-3xl text-wz-font-color-light-gray font-bold font-montserratAlternatesSans tablet:text-4xl">{{wizard().name}}</h1>
 
-  <p class="mb-5 line-clamp-2 text-base text-wz-font-color-light-gray pt-1 font-montserratSans font-normal tablet:pt-2  tablet:text-xl tablet:leading-6">
+  <p class="mb-5 line-clamp-2 text-sm text-wz-font-color-light-gray pt-1 font-montserratSans font-normal tablet:pt-2  tablet:text-xl tablet:leading-6">
     @for(alternate_name of wizard().alternate_names; track alternate_name; let last = $last) {
       @if(last) {
         <span>{{alternate_name}}</span>
       } @else {
-        <span>{{alternate_name + ' ' + '・' + ' '}}</span>
+        <span>{{alternate_name + ' ・ '}}</span>
       }
     }
   </p>
 
-  <div class="mb-10 flex gap-3 font-montserrat text-wz-font-color-light-gray text-base font-medium tablet:text-xl">
-    <div class="bg-wz-pink rounded-full px-3 py-1">{{wizard().species}}</div>
-    @if(wizard().wizard) {
-      <div class="bg-wz-light-purple rounded-full px-3 py-1">Wizard</div>
+  <div class="mb-8 flex gap-2 font-montserrat text-wz-font-color-light-gray text-sm font-medium tablet:text-xl">
+    @if (wizard().species) {
+      <div class="bg-wz-pink rounded-full px-3 py-1 tablet:px-4 tablet:py-2">{{wizard().species}}</div>
     }
-    <div class="bg-wz-turquoise rounded-full px-3 py-1">{{wizard().house}}</div>
+    @if(wizard().wizard) {
+      <div class="bg-wz-light-purple rounded-full px-3 py-1 tablet:px-4 tablet:py-2">Wizard</div>
+    }
+    @if (wizard().house) {
+      <div class="bg-wz-turquoise rounded-full px-3 py-1 tablet:px-4 tablet:py-2">{{wizard().house}}</div>
+    }
   </div>
 
   <div class="bg-wz-bg-dark-green border border-solid border-wz-border-color-light-green rounded-xl">
     <ion-list [inset]="true" lines="full" mode="ios">
       <ion-item>
         <ion-label>Gender</ion-label>
-        <p class="text-wz-font-color-light-gray text-base font-normal tablet:text-xl">{{wizard().gender}}</p>
+        <p class="text-wz-font-color-light-gray text-sm font-normal tablet:text-xl">{{wizard().gender}}</p>
       </ion-item>
       @if(wizard().dateOfBirth; as dateOfBirth) {
         <ion-item>
           <ion-label>Birth</ion-label>
-          <p class="text-wz-font-color-light-gray text-base font-normal tablet:text-xl">{{dateParser(dateOfBirth!) | date: 'longDate'}}</p>
+          <p class="text-wz-font-color-light-gray text-sm font-normal tablet:text-xl">{{dateParser(dateOfBirth!) | date: 'longDate'}}</p>
         </ion-item>
       }
       <ion-item>
         <ion-label>Ancestry</ion-label>
-        <p class="text-wz-font-color-light-gray text-base font-normal tablet:text-xl">{{wizard().ancestry}}</p>
+        <p class="text-wz-font-color-light-gray text-sm font-normal tablet:text-xl">{{wizard().ancestry}}</p>
       </ion-item>
       <ion-item>
         <ion-label>Eye colour</ion-label>
-        <p class="text-wz-font-color-light-gray text-base font-normal tablet:text-xl">{{wizard().eyeColour}}</p>
+        <p class="text-wz-font-color-light-gray text-sm font-normal tablet:text-xl">{{wizard().eyeColour}}</p>
       </ion-item>
       <ion-item>
         <ion-label>Hair colour</ion-label>
-        <p class="text-wz-font-color-light-gray text-base font-normal tablet:text-xl">{{wizard().hairColour}}</p>
+        <p class="text-wz-font-color-light-gray text-sm font-normal tablet:text-xl">{{wizard().hairColour}}</p>
       </ion-item>
       <ion-item>
         <ion-label>Patronus</ion-label>
-        <p class="text-wz-font-color-light-gray text-base font-normal tablet:text-xl">{{wizard().patronus}}</p>
+        <p class="text-wz-font-color-light-gray text-sm font-normal tablet:text-xl">{{wizard().patronus}}</p>
       </ion-item>
     </ion-list>
   </div>

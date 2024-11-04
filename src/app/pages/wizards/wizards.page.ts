@@ -2,7 +2,6 @@ import {
   Component,
   computed,
   inject,
-  OnInit,
   Signal,
   signal,
   WritableSignal,
@@ -18,7 +17,6 @@ import {
 } from '@ionic/angular/standalone';
 import { WizardService } from '../../services/wizard.service';
 import { Wizard } from '../../models/wizard';
-import { Spell } from '../../models/spell';
 import { WizardCardComponent } from '../../components/wizard-card/wizard-card.component';
 
 @Component({

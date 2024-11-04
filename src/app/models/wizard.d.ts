@@ -1,5 +1,4 @@
 import { Wand } from './wand';
-
 export interface Wizard {
   id: string;
   name: string;
