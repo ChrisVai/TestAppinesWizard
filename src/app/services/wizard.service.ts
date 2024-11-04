@@ -1,5 +1,4 @@
 import { inject, Injectable, Signal } from '@angular/core';
-import { Spell } from '../models/spell';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { HttpClient } from '@angular/common/http';
 import { Wizard } from '../models/wizard';
@@ -10,6 +9,8 @@ import { map, Observable } from 'rxjs';
 })
 export class WizardService {
   private readonly http: HttpClient = inject(HttpClient);
+
+  //return all the Wizards as an observable<Wizard[]>
   fetchWizards(): Signal<Wizard[]> {
     return toSignal(
       this.http
@@ -26,7 +27,7 @@ export class WizardService {
       { initialValue: [] },
     );
   }
-
+  //return a Wizard by id
   fetchWizardById(id: string): Observable<Wizard> {
     return this.http
       .get<Wizard[]>(`https://hp-api.onrender.com/api/character/${id}`)
@@ -36,7 +37,7 @@ export class WizardService {
           for (const wizard of wizards) {
             wizard.image = wizard.image.slice(28);
           }
-          // api call return only one wizard as array
+          // used to return a Wizard : api call return only one wizard as array
           return wizards[0];
         }),
       );
