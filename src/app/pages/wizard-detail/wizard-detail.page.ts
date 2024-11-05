@@ -50,7 +50,7 @@ export class WizardDetailPage implements OnInit {
       .pipe(
         takeUntilDestroyed(this._destroyRef),
         map((wizard: Wizard) => {
-          //capitalize first letter of these wizard's attributes
+          //capitalize first letter of selected wizard's attributes
           wizard.species = this.capitalizeFirstLetter(wizard.species);
           wizard.gender = this.capitalizeFirstLetter(wizard.gender);
           wizard.ancestry = this.capitalizeFirstLetter(wizard.ancestry);
