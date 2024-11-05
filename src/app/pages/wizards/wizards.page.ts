@@ -36,13 +36,13 @@ import { WizardCardComponent } from '../../components/wizard-card/wizard-card.co
   ],
 })
 export class WizardsPage {
-  private readonly wizards: Signal<Wizard[]> =
+  private readonly _wizards: Signal<Wizard[]> =
     inject(WizardService).fetchWizards();
 
   searchInput: WritableSignal<string> = signal('');
 
   protected filteredWizards: Signal<Wizard[]> = computed(() =>
-    this.wizards().filter(wizard =>
+    this._wizards().filter(wizard =>
       wizard.name.toLowerCase().includes(this.searchInput().toLowerCase()),
     ),
   );

@@ -36,12 +36,13 @@ import { SpellService } from '../../services/spell.service';
   ],
 })
 export class SpellsPage {
-  private readonly spells: Signal<Spell[]> = inject(SpellService).fetchSpells();
+  private readonly _spells: Signal<Spell[]> =
+    inject(SpellService).fetchSpells();
 
   searchInput: WritableSignal<string> = signal('');
 
   protected filteredSpells: Signal<Spell[]> = computed(() =>
-    this.spells().filter(spell =>
+    this._spells().filter(spell =>
       spell.name.toLowerCase().includes(this.searchInput().toLowerCase()),
     ),
   );

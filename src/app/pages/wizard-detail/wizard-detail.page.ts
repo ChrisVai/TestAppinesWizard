@@ -41,16 +41,16 @@ export class WizardDetailPage implements OnInit {
 
   wizard: WritableSignal<Wizard> = signal<Wizard>({} as Wizard);
 
-  private readonly wizardService: WizardService = inject(WizardService);
-  private readonly destroyRef: DestroyRef = inject(DestroyRef);
+  private readonly _wizardService: WizardService = inject(WizardService);
+  private readonly _destroyRef: DestroyRef = inject(DestroyRef);
 
   ngOnInit() {
-    this.wizardService
+    this._wizardService
       .fetchWizardById(this.id)
       .pipe(
-        takeUntilDestroyed(this.destroyRef),
+        takeUntilDestroyed(this._destroyRef),
         map((wizard: Wizard) => {
-          //capitalize first letter of these wizard's attributes
+          //capitalize first letter of selected wizard's attributes
           wizard.species = this.capitalizeFirstLetter(wizard.species);
           wizard.gender = this.capitalizeFirstLetter(wizard.gender);
           wizard.ancestry = this.capitalizeFirstLetter(wizard.ancestry);
