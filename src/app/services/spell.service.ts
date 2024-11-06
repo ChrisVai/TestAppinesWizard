@@ -8,6 +8,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 })
 export class SpellService {
   private hpApiUrl: string = 'https://hp-api.onrender.com/api';
+
   //return all spells as a Signal<Spell[]>
   fetchSpells(): Signal<Spell[]> {
     return toSignal(
