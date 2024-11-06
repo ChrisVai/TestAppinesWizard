@@ -7,10 +7,11 @@ import { toSignal } from '@angular/core/rxjs-interop';
   providedIn: 'root',
 })
 export class SpellService {
+  private hpApiUrl: string = 'https://hp-api.onrender.com/api';
   //return all spells as a Signal<Spell[]>
   fetchSpells(): Signal<Spell[]> {
     return toSignal(
-      inject(HttpClient).get<Spell[]>('https://hp-api.onrender.com/api/spells'),
+      inject(HttpClient).get<Spell[]>(`${this.hpApiUrl}/spells`),
       { initialValue: [] },
     );
   }
