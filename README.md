@@ -37,13 +37,13 @@ To set up this project locally, follow these steps:
 1. Clone this repository to your local machine:
 
 ```
-git clone git@bitbucket.org:appinesfr/appines_angular_test.git
+git clone https://github.com/ChrisVai/TestAppinesWizard
 ```
 
 2. Navigate to the project folder:
 
 ```
-cd appines_angular_test
+cd TestAppinesWizard
 ```
 
 3. Install the necessary dependencies with npm:
