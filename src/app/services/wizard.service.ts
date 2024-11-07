@@ -11,7 +11,7 @@ export class WizardService {
   private readonly http: HttpClient = inject(HttpClient);
   private hpApiUrl: string = 'https://hp-api.onrender.com/api';
 
-  //return all the Wizards as an observable<Wizard[]>
+  //return all the Wizards as a Signal<Wizard[]>
   fetchWizards(): Signal<Wizard[]> {
     return toSignal(
       this.http.get<Wizard[]>(`${this.hpApiUrl}/characters`).pipe(
@@ -26,7 +26,7 @@ export class WizardService {
       { initialValue: [] },
     );
   }
-  //return a Wizard by id
+  //return a Wizard by id as an Observable
   fetchWizardById(id: string): Observable<Wizard> {
     return this.http.get<Wizard[]>(`${this.hpApiUrl}/character/${id}`).pipe(
       map((wizards: Wizard[]) => {
